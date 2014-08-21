@@ -90,7 +90,7 @@
   // successful.  See statusChangeCallback() for when this call is made.
     function testAPI() {
       console.log('Welcome!  Fetching your information.... ');
-      FB.api('/me/friends', function(response) {
+      FB.api('/me/invitable_friends', function(response) {
         if (response && !response.error) {
             console.log(response);
         }
