@@ -21,21 +21,9 @@
           js.src = "//connect.facebook.net/en_US/sdk.js";
           fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
-        FB.login(function(response) {
-  if (response.status === 'connected') {
-    // Logged into your app and Facebook.
-  } else if (response.status === 'not_authorized') {
-    // The person is logged into Facebook, but not your app.
-    console.log('not_authorized');
-  } else {
-    // The person is not logged into Facebook, so we're not sure if
-    // they are logged into this app or not.
-    console.log('not logged into Facebook');
-  }
-}, {scope: 'public_profile,user_friends'});
 
-// This is called with the results from from FB.getLoginStatus().
-  function statusChangeCallback(response) {
+    // This is called with the results from from FB.getLoginStatus().
+    function statusChangeCallback(response) {
     console.log('statusChangeCallback');
     console.log(response);
     // The response object is returned with a status field that lets the
@@ -60,7 +48,7 @@
   function login() {
     FB.login(function(response) {
       statusChangeCallback(response);
-    });
+    }, {scope: 'public_profile,user_friends'});
   }
 
   
@@ -102,17 +90,14 @@
 
   // Here we run a very simple test of the Graph API after login is
   // successful.  See statusChangeCallback() for when this call is made.
-  function testAPI() {
-    console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me/friends', function(response) {
-      if (response && !response.error) {
-          console.log(response);
-      }
-    });
-  }
-        $( document ).ready(function() {
-              login();
-        });
+    function testAPI() {
+      console.log('Welcome!  Fetching your information.... ');
+      FB.api('/me/friends', function(response) {
+        if (response && !response.error) {
+            console.log(response);
+        }
+      });
+    }
         </script>
   </head>
   <body>    
@@ -120,8 +105,8 @@
         <a class="notification" href="#notifications"><h1 class="title">Bubble <span class="badge badge-negative">4</span></h1></a>
     </header>
 
-    <nav class="bar bar-tab active">
-        <a class="tab-item my-friends" href="#">
+    <nav class="bar bar-tab">
+        <a class="tab-item my-friends active" href="#">
             <span class="icon icon-person"></span>
             <span class="tab-label">My Friends</span>
         </a>
@@ -136,6 +121,9 @@
     </nav>
 
     <div class="content">
+
+    <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+    </fb:login-button>
 
     <ul class="table-view">
         <li class="table-view-cell media">
