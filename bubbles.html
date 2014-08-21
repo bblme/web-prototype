@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Bubble</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <!--<meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">-->
+
+    <link rel="stylesheet" href="css/ratchet.min.css">
+    <link rel="stylesheet" href="css/ratchet-theme-ios.min.css">
+    <link rel="stylesheet" href="css/app.css">
+    <script src="js/ratchet.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+  </head>
+  <body>
+    
+    <header class="bar bar-nav">
+      <a class="notification" href="#notifications"><h1 class="title">Bubble <span class="badge badge-negative">4</span></h1></a>
+    </header>
+
+    <nav class="bar bar-tab">
+        <a class="tab-item my-friends" href="#">
+            <span class="icon icon-person"></span>
+            <span class="tab-label">My Friends</span>
+        </a>
+        <a class="tab-item bubbles active" href="#">
+            <span class="icon icon-star-filled"></span>
+            <span class="tab-label">Bubbles</span>
+        </a>
+        <a class="tab-item settings" href="#">
+            <span class="icon icon-gear"></span>
+            <span class="tab-label">Settings</span>
+        </a>
+    </nav>
+
+    <div class="content">
+
+      <ul class="table-view friends-bubbles">
+        <li class="table-view-cell media">
+          <a class="navigate-right bubbled" href="#" data-transition="slide-in">
+            <img class="media-object pull-left" src="http://placehold.it/42x42">
+            <div class="media-body">
+            	Friend X
+                <p>last bubbled 2 days ago</p>
+            </div>
+          </a>
+        </li>
+        <li class="table-view-cell media">
+          <a class="navigate-right awaiting" href="#send-confirm" data-transition="slide-in">
+            <img class="media-object pull-left" src="http://placehold.it/42x42">
+            <div class="media-body">
+            	Friend X
+                <p>last bubbled 2 days ago</p>
+            </div>
+          </a>
+        </li>
+        <li class="table-view-cell media">
+          <a class="navigate-right" href="#send-confirm" data-transition="slide-in">
+            <img class="media-object pull-left" src="http://placehold.it/42x42">
+            <div class="media-body">
+            	Friend X
+                <p>last bubbled 5 days ago</p>
+            </div>
+          </a>
+        </li>
+        <li class="table-view-cell media">
+          <a class="navigate-right" href="#send-confirm" data-transition="slide-in">
+            <img class="media-object pull-left" src="http://placehold.it/42x42">
+            <div class="media-body">
+            	Friend X
+                <p>last bubbled 7 days ago</p>
+            </div>
+          </a>
+        </li>
+        <li class="table-view-cell media">
+          <a class="navigate-right" href="#send-confirm" data-transition="slide-in">
+            <img class="media-object pull-left" src="http://placehold.it/42x42">
+            <div class="media-body">
+            	Friend X
+                <p>last bubbled 1 month ago</p>
+            </div>
+          </a>
+        </li>
+        <li class="table-view-cell media">
+          <a class="navigate-right" href="#send-confirm" data-transition="slide-in">
+            <img class="media-object pull-left" src="http://placehold.it/42x42">
+            <div class="media-body">
+            	Friend X
+                <p>last bubbled 1 month ago</p>
+            </div>
+          </a>
+        </li>
+        <li class="table-view-cell media">
+          <a class="navigate-right" href="#send-confirm" data-transition="slide-in">
+            <img class="media-object pull-left" src="http://placehold.it/42x42">
+            <div class="media-body">
+            	Friend X
+                <p>last bubbled 1 month ago</p>
+            </div>
+          </a>
+        </li>
+        <li class="table-view-cell media">
+          <a class="navigate-right" href="#send-confirm" data-transition="slide-in">
+            <img class="media-object pull-left" src="http://placehold.it/42x42">
+            <div class="media-body">
+            	Friend X
+                <p>last bubbled 1 month ago</p>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div><!-- /.content -->
+    
+	<div id="send-confirm" class="modal">
+      <header class="bar bar-nav">
+        <a class="icon icon-close pull-right" href="#send-confirm"></a>
+        <h1 class="title">Bubble friend</h1>
+      </header>
+    
+      <div class="content">
+        <p class="content-padded">Invite friend to your bubble?</p>
+        <p class="content-padded">
+            <button class="btn btn-block"><span class="icon icon-check"></span>Yes</button>
+            <button class="btn btn-block" onClick="$('#send-confirm .bar-nav .icon-close').click();"><span class="icon icon-close"></span>Cancel</button>
+        </p>
+      </div>
+    </div>
+    
+    
+    <div id="notifications" class="popover">
+      <header class="bar bar-nav">
+        <h1 class="title">Notifications</h1>
+      </header>
+      <ul class="table-view">
+        <li class="table-view-cell"><a href="#" data-transition="slide-in">Friend X bubbled you!</a></li>
+        <li class="table-view-cell"><a href="#" data-transition="slide-in">Friend Y bubbled you!</a></li>
+        <li class="table-view-cell"><a href="#" data-transition="slide-in">Friend Z bubbled you!</a></li>
+        <li class="table-view-cell"><a href="#" data-transition="slide-in">Friend A bubbled you!</a></li>
+        <li class="table-view-cell"><a href="#" data-transition="slide-in">Friend B bubbled you!</a></li>
+        <li class="table-view-cell"><a href="#" data-transition="slide-in">Friend X bubbled you!</a></li>
+      </ul>
+    </div>
+
+    <script>
+		$(function(){
+			
+			// call confirmation on friend invite/click
+			$('.friends-bubbles a.bubbled, #notifications a').click(function(){
+				location.href = 'bubbles-map.html';
+			});
+
+
+			$('.bar .my-friends').click(function(){
+				location.href = 'myfriends.html';
+			});
+			$('.bar .bubbles').click(function(){
+				location.href = 'bubbles.html';
+			});
+			$('.bar .settings').click(function(){
+				location.href = 'settings.html';
+			});
+		});
+	</script>
+  </body>
+</html>
