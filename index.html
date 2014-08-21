@@ -99,7 +99,7 @@
     </header>
 
     <nav class="bar bar-tab">
-        <a class="tab-item my-friends" href="myfriends.html">
+        <a class="tab-item my-friends" href="#">
             <span class="icon icon-person"></span>
             <span class="tab-label">My Friends</span>
         </a>
@@ -133,26 +133,5 @@
         <li class="table-view-cell">Friend X bubbled you!</li>
       </ul>
     </div>
-
-    <script>
-		$(function(){
-			
-			// back button to friends bubbles
-			$('.bar .pull-left').click(function(){
-				location.href = 'bubbles.html';
-			});
-			
-			
-			$('.bar .my-friends').click(function(){
-				location.href = 'myfriends.html';
-			});
-			$('.bar .bubbles').click(function(){
-				location.href = 'bubbles.html';
-			});
-			$('.bar .settings').click(function(){
-				location.href = 'settings.html';
-			});
-		});
-	</script>
   </body>
 </html>
