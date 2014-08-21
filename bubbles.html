@@ -12,6 +12,13 @@
     <link rel="stylesheet" href="css/app.css">
     <script src="js/ratchet.min.js"></script>
     <script src="js/jquery.min.js"></script>
+    <script src="js/bblme.js"></script>
+
+        <script>
+        $( document ).ready(function() {
+            login();
+        });
+        </script>
   </head>
   <body>
     
@@ -20,7 +27,7 @@
     </header>
 
     <nav class="bar bar-tab">
-        <a class="tab-item my-friends" href="myfriends.html">
+        <a class="tab-item my-friends" href="index.html">
             <span class="icon icon-person"></span>
             <span class="tab-label">My Friends</span>
         </a>
@@ -141,26 +148,5 @@
         <li class="table-view-cell"><a href="#" data-transition="slide-in">Friend X bubbled you!</a></li>
       </ul>
     </div>
-
-    <script>
-		$(function(){
-			
-			// call confirmation on friend invite/click
-			$('.friends-bubbles a.bubbled, #notifications a').click(function(){
-				location.href = 'bubbles-map.html';
-			});
-
-
-			$('.bar .my-friends').click(function(){
-				location.href = 'myfriends.html';
-			});
-			$('.bar .bubbles').click(function(){
-				location.href = 'bubbles.html';
-			});
-			$('.bar .settings').click(function(){
-				location.href = 'settings.html';
-			});
-		});
-	</script>
   </body>
 </html>
